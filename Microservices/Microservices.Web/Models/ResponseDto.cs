@@ -1,4 +1,4 @@
-﻿namespace Microservices.Services.CouponAPI.Models
+﻿namespace Microservices.Web.Models
 {
     public class ResponseDto
     {
