@@ -1,5 +1,8 @@
-﻿using Microservices.Web.Models;
+﻿using System;
+using Microservices.Web.Models;
 using Microservices.Web.Service.IService;
+using Microservices.Web.Utility;
+using static Microservices.Web.Utility.StaticDetail;
 
 namespace Microservices.Web.Service
 {
@@ -11,34 +14,60 @@ namespace Microservices.Web.Service
             _baseService = baseService;
         }
 
-        public Task<ResponseDto?> CreateCouponAsync(CouponDto couponDto)
+        public async Task<ResponseDto?> CreateCouponAsync(CouponDto couponDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = StaticDetail.ApiType.POST,
+                Data = couponDto,
+                Url = StaticDetail.CouponAPIBase + "coupon"
+            });
         }
 
-        public Task<ResponseDto?> DeleteCouponByIdAsync(int id)
+        public async Task<ResponseDto?> DeleteCouponByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = StaticDetail.ApiType.DELETE,
+                Url = StaticDetail.CouponAPIBase + "coupon/" + id
+            });
         }
 
-        public Task<ResponseDto?> GetAllCouponAsync()
+        public async Task<ResponseDto?> GetAllCouponAsync()
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = StaticDetail.ApiType.GET,
+                Url = StaticDetail.CouponAPIBase + "coupon"
+            });
         }
 
-        public Task<ResponseDto?> GetCouponAsync(string couponCode)
+        public async Task<ResponseDto?> GetCouponAsync(string couponCode)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = StaticDetail.ApiType.GET,
+                Url = StaticDetail.CouponAPIBase + "coupon/GetByCode/" + couponCode
+            });
         }
 
-        public Task<ResponseDto?> GetCouponByIdAsync(int id)
+        public async Task<ResponseDto?> GetCouponByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = StaticDetail.ApiType.GET,
+                Url = StaticDetail.CouponAPIBase + "coupon/" + id
+            });
         }
 
-        public Task<ResponseDto?> UpdateCouponAsync(CouponDto couponDto)
+        public async Task<ResponseDto?> UpdateCouponAsync(CouponDto couponDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = StaticDetail.ApiType.PUT,
+                Data = couponDto,
+                Url = StaticDetail.CouponAPIBase + "coupon"
+            });
         }
     }
 }
