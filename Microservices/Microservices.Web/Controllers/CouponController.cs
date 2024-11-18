@@ -25,6 +25,10 @@ namespace Microservices.Web.Controllers
 			{
 				list = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(response.Result));
 			}
+			else
+			{
+				TempData["error"] = response.Message;
+			}
 			return View(list);
 		}
 
@@ -42,7 +46,12 @@ namespace Microservices.Web.Controllers
 
 				if (response != null && response.isSuccess)
 				{
+					TempData["success"] = "Coupon created successfully";
 					return RedirectToAction(nameof(CouponIndex));
+				}
+				else
+				{
+					TempData["error"] = response.Message;
 				}
 			}
 			return View(model);
@@ -57,6 +66,10 @@ namespace Microservices.Web.Controllers
 				CouponDto? model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
 				return View(model);
 			}
+			else
+			{
+				TempData["error"] = response.Message;
+			}
 			return NotFound();
 		}
 
@@ -67,7 +80,12 @@ namespace Microservices.Web.Controllers
 
 			if (response != null && response.isSuccess)
 			{
+				TempData["success"] = "Coupon deleted successfully";
 				return RedirectToAction(nameof(CouponIndex));
+			}
+			else
+			{
+				TempData["error"] = response.Message;
 			}
 			return View(couponDto);
 		}
