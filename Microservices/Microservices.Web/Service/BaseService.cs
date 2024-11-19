@@ -51,13 +51,13 @@ namespace Microservices.Web.Service
                 switch (apiResponse.StatusCode)
                 {
                     case HttpStatusCode.NotFound:
-                        return new() { isSuccess = false, Message = "Not Found" };
+                        return new() { IsSuccess = false, Message = "Not Found" };
                     case HttpStatusCode.Forbidden:
-                        return new() { isSuccess = false, Message = "Access Denied" };
+                        return new() { IsSuccess = false, Message = "Access Denied" };
                     case HttpStatusCode.Unauthorized:
-                        return new() { isSuccess = false, Message = "Unauthorized" };
+                        return new() { IsSuccess = false, Message = "Unauthorized" };
                     case HttpStatusCode.InternalServerError:
-                        return new() { isSuccess = false, Message = "Internal Server Error" };
+                        return new() { IsSuccess = false, Message = "Internal Server Error" };
                     default:
                         var apiContent = await apiResponse.Content.ReadAsStringAsync();
                         var apiReponseDto = JsonConvert.DeserializeObject<ResponseDto>(apiContent);
@@ -70,7 +70,7 @@ namespace Microservices.Web.Service
                 var dto = new ResponseDto
                 {
                     Message = ex.Message.ToString(),
-                    isSuccess = false,
+                    IsSuccess = false,
                 };
                 return dto;
             }

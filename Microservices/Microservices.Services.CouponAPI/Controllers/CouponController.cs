@@ -31,7 +31,7 @@ namespace Microservices.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.isSuccess = false;
+                _response.IsSuccess = false;
                 _response.Message = ex.Message;
             }
             return _response;
@@ -48,7 +48,7 @@ namespace Microservices.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.isSuccess = false;
+                _response.IsSuccess = false;
                 _response.Message = ex.Message;
             }
             return _response;
@@ -65,7 +65,7 @@ namespace Microservices.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.isSuccess = false;
+                _response.IsSuccess = false;
                 _response.Message = ex.Message;
             }
             return _response;
@@ -84,7 +84,7 @@ namespace Microservices.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.isSuccess = false;
+                _response.IsSuccess = false;
                 _response.Message = ex.Message;
             }
             return _response;
@@ -103,7 +103,7 @@ namespace Microservices.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.isSuccess = false;
+                _response.IsSuccess = false;
                 _response.Message = ex.Message;
             }
             return _response;
@@ -121,7 +121,7 @@ namespace Microservices.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.isSuccess = false;
+                _response.IsSuccess = false;
                 _response.Message = ex.Message;
             }
             return _response;

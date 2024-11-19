@@ -21,7 +21,7 @@ namespace Microservices.Web.Controllers
 
 			ResponseDto? response = await _couponService.GetAllCouponAsync();
 
-			if (response != null && response.isSuccess)
+			if (response != null && response.IsSuccess)
 			{
 				list = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(response.Result));
 			}
@@ -44,7 +44,7 @@ namespace Microservices.Web.Controllers
 			{
 				ResponseDto? response = await _couponService.CreateCouponAsync(model);
 
-				if (response != null && response.isSuccess)
+				if (response != null && response.IsSuccess)
 				{
 					TempData["success"] = "Coupon created successfully";
 					return RedirectToAction(nameof(CouponIndex));
@@ -61,7 +61,7 @@ namespace Microservices.Web.Controllers
 		{
 			ResponseDto? response = await _couponService.GetCouponByIdAsync(couponId);
 
-			if (response != null && response.isSuccess)
+			if (response != null && response.IsSuccess)
 			{
 				CouponDto? model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
 				return View(model);
@@ -78,7 +78,7 @@ namespace Microservices.Web.Controllers
 		{
 			ResponseDto? response = await _couponService.DeleteCouponByIdAsync(couponDto.CouponId);
 
-			if (response != null && response.isSuccess)
+			if (response != null && response.IsSuccess)
 			{
 				TempData["success"] = "Coupon deleted successfully";
 				return RedirectToAction(nameof(CouponIndex));
