@@ -1,4 +1,4 @@
-﻿namespace Microservices.Services.AuthAPI.Models
+﻿namespace Microservices.Services.AuthAPI.Models.Dto
 {
     public class ResponseDto
     {
